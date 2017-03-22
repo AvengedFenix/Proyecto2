@@ -40,7 +40,7 @@ int main(int argc, char const *argv[]) {
                         break;
                     }// fin case 1.1
                     case 2:{
-                        std::cout << "1. ArmaduraLiviana \n2. ArmaduraMedia \n 3.ArmaduraPesada" << endl;
+                        std::cout << "1. ArmaduraLiviana \n2. ArmaduraMedia \n 3. ArmaduraPesada" << endl;
                         break;
                     }//fin case 1.2
                     case 3:{
