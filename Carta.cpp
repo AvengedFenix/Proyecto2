@@ -50,7 +50,7 @@ void Carta::setValor(int value){
 }
 
 void Carta::Especial(Carta* carta){
-  
+
 }
 
 Carta::~Carta(){
