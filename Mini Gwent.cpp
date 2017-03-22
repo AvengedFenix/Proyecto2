@@ -10,7 +10,7 @@ int main() {
     getmaxyx(stdscr,y,x);
     init_pair(1, COLOR_RED, COLOR_WHITE);
     attron(COLOR_PAIR(1));
-    mvprintw(0, y/2, "Welcome to Gwent");
+    mvprintw(0, y/2, "Welcome to The Witcher RPG");
     mvprintw(3, y/2, "Please enter your username");
 
     //AQUI VALIDACION SI EL JUGADOR EXISTE
