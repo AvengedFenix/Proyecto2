@@ -1,0 +1,9 @@
+Armadura (peso, duracion)
+	-ligera
+	-media
+	-pesada
+
+Escudos
+	-madera
+	-metal
+	-magic shield (reflect damage)
