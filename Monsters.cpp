@@ -15,3 +15,7 @@ Monsters::Monsters(int posx, int posy, string nombre, int valor) : Carta(posx, p
 void Monsters::Especial(Carta* carta){
   carta -> setValor((carta -> getValor())/* - cualquier valor*/);
 }
+
+void Monsters::setArma(Arma* arma){
+  weapon = arma;
+}

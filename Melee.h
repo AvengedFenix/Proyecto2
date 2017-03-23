@@ -6,7 +6,7 @@ private:
 
 public:
   Arma();
-  Arma(string, int);
+  Arma(string, int, int);
 
   int getEfectividad();
 
