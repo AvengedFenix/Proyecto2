@@ -12,13 +12,10 @@ public:
   Monsters(string, int);
   Monsters(int, int, string, int);
 
-  void setArma(Arma*);
-  void setShield(Shield*);
-  void setMagia(Magia*);
 
-  Arma* getArma();
-  Shield* getShield();
-  Magia* getMagia();
-  
+  void Attack(Carta*);
   void Especial(Carta*);
+
+
+  virtual ~Monsters();
 };

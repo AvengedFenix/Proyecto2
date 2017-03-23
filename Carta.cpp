@@ -56,3 +56,31 @@ void Carta::Especial(Carta* carta){
 Carta::~Carta(){
 
 }
+
+void Carta::setArma(Arma* arma){
+  weapon = arma;
+}
+
+void Carta::setShield(Shield* shield){
+  escudo = shield;
+}
+
+void Carta::setMagia(Magia* magic){
+  magia = magic;
+}
+
+Arma* Carta::getArma(){
+  return weapon;
+}
+
+Shield* Carta::getShield(){
+  return escudo;
+}
+
+Magia* Carta::getMagia(){
+  return magia;
+}
+
+Carta::~Carta(){
+
+}
