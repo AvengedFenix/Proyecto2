@@ -1,61 +1,88 @@
-#include <ncurses.h>
+#include "Arma.h"
+#include "Armadura.h"
+#include "ArmaduraLiviana.h"
+#include "ArmaduraMedia.h"
+#include "ArmaduraPesada.h"
+#include "Fire.h"
+#include "Ice.h"
+#include "Magia.h"
+#include "MagicShield.h"
+#include "Melee.h"
+#include "MetalShield.h"
+#include "Ranged.h"
+#include "Shield.h"
+#include "WoodShield.h"
 
+
+#include <iostream>
+#include <vector>
+#include <typeinfo>
 
 using namespace std;
 
 void Simulacion(vector<Bender*>);
 
-int main() {
-    initscr();
-    start_color();
-    int x,y;
-    getmaxyx(stdscr,y,x);
-    init_pair(1, COLOR_RED, COLOR_WHITE);
-    attron(COLOR_PAIR(1));
-    mvprintw(0, y/2, "Welcome to The Witcher RPG");
-    mvprintw(3, y/2, "Please enter your username");
+int main(int argc, char const *argv[]) {
+    std::vector<Bender*> benders;
+    char resp = 's';
+    while (resp == 's' || resp == 'S') {
+        std::cout << "1. Crear \n2. Simulacion" << endl;
+        int op;
+        std::cin >> op;
+        switch (op) {
+            case 1:{
+                std::cout << "1. Arma \n2. Armadura \n3. Magia \n4. Shield" << endl;
+                int mepisan;
+                std::cin >> mepisan;
+                switch (mepisan) {
+                    case 1:{
+                        std::cout << "1. " << endl;
+                        break;
+                    }// fin case 1.1
+                    case 2:{
+                        std::cout << "1. ArmaduraLiviana \n2. ArmaduraMedia \n 3. ArmaduraPesada" << endl;
+                        break;
+                    }//fin case 1.2
+                    case 3:{
+                        std::cout << "1. Fire \n 2. Ice" <<endl;
+                        break;
+                    }//fin case 1.3
+                    case 4:{
+                        std::cout << "1. MagicShield \n2. MetalShield\n3. WoodShield" << endl;
+                        break;
+                    }//fin case 1.4
+                }//fin switch 1.1
+                break;
+            }//fin case 1
+            case 2:{
+                Simulacion(benders);
+            }
+        }//fin switch
+        std::cout << "Desea continuar S/N" << endl;
+        std::cin >> resp;
+    }//fin while
 
-
-    mvprintw(5, y/2, "a. Play");
-    mvprintw(7, y/2, "b. Choose character");
-    mvprintw(9, y/2, "c. Modify character");
-    char c1 = getch();
-    if (c1 == 'a') {
-        //Empezar juego vs AI
-        //Validar si el usuario elijio un personaje
-        //Simulacion();
-    }else if (c1 == 'b') {
-        refresh();
-        char c2;
-        mvprintw(11, 20, "Choose a faction");
-        mvprintw(13,20,"a. Monsters");
-        mvprintw(15,20,"b. Scoia\'tael");
-        mvprintw(17,20,"c. Nilfgaardians");
-        mvprintw(19,20,"d. NorthernRealms");
-        refresh();
-        c2 = getch();
-        if (c2 == 'a') {
-            /* code */
-        }else if (c2 == 'b') {
-            /* code */
-        }else if (c2 == 'c') {
-            /* code */
-        }else if (c2 == 'd') {
-            /* code */
-        }
-        //recorrer un vector con cartas de esa faccion
-    }else if (c1 == 'c') {
-        /* code */
-    }
-
-
-    attroff(COLOR_PAIR(1));
-    refresh();
-    endwin();
     return 0;
-}
+}//fin main
 
 void Simulacion(vector<Bender*> v){
+    if (v.size()<2) {
+        std::cout << "No hay personajes registrados, porfavor registre 2 al menos" << '\n';
+    }else{
+        std::cout << "Jugador 1, Elija su personaje" << endl;
+        for (int i = 0; i < v.size(); i++) {
+            std::cout << i << ". " << v[i]->getNombre() << endl;
+        }
+        int J1;
+        std::cin >> J1;
+    //    v.erase(vec.begin() +jug1);
+        std::cout << "Jugador 2, Elija su personaje" << endl;
+        int J2;
+        std::cin >> J2;
+        while (J1 == J2) {
+            std::cout << "No puede elegir ese personaje, el jugador 1 ya lo tomo" << endl;
+            std::cin >> J2;
+        }
         bool seguir = true;
         int turno = 1;
         while (seguir == true) {
