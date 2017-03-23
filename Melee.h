@@ -1,12 +1,14 @@
 #pragma once
 
+#include "Arma.h"
+
 class Melee : public Arma{
 private:
   int efectividad;
 
 public:
   Arma();
-  Arma(string, int);
+  Arma(string, int, int);
 
   int getEfectividad();
 
