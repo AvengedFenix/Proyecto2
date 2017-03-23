@@ -23,7 +23,7 @@ using namespace std;
 void Simulacion(vector<Bender*>);
 
 int main(int argc, char const *argv[]) {
-    std::vector<Bender*> benders;
+    std::vector<Arma*> arma;
     char resp = 's';
     while (resp == 's' || resp == 'S') {
         std::cout << "1. Crear \n2. Simulacion" << endl;
@@ -36,7 +36,17 @@ int main(int argc, char const *argv[]) {
                 std::cin >> mepisan;
                 switch (mepisan) {
                     case 1:{
-                        std::cout << "1. " << endl;
+                        std::cout << "1. Melee \n2. Ranged" << endl;
+                        int op1;
+                        std::cin >> op1;
+                        switch (op1) {
+                            case 1:{
+                                //arma.push_back(new Melee());
+                            }//fin case 2.1
+                            case 2:{
+                                //arma.push_back(new Ranged());
+                            }// fin case 2.2
+                        }//Fin switch
                         break;
                     }// fin case 1.1
                     case 2:{
