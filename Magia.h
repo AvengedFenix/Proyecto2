@@ -3,7 +3,7 @@
 #include <string>
 
 class Magia{
-private:
+protected:
   int damage;
   int tiempo; // time to cast
 public:

@@ -20,14 +20,20 @@
 
 using namespace std;
 
-void Simulacion(vector<Bender*>);
+//void Simulacion(vector<Bender*>);
 
 int main(int argc, char const *argv[]) {
     std::vector<Arma*> arma;
+    std::vector<Armadura*> armadura;
+    std::vector<Magia*> magia;
+    std::vector<Shield*> shield;
+    string nombre;
+    int damage;
     char resp = 's';
     while (resp == 's' || resp == 'S') {
         std::cout << "1. Crear \n2. Simulacion" << endl;
         int op;
+        int op1;
         std::cin >> op;
         switch (op) {
             case 1:{
@@ -36,36 +42,116 @@ int main(int argc, char const *argv[]) {
                 std::cin >> mepisan;
                 switch (mepisan) {
                     case 1:{
+                        std::cout << "Nombre" << endl;
+                        std::cin >> nombre;
+                        std::cout << "Damage" << endl;
+                        std::cin >> damage;
                         std::cout << "1. Melee \n2. Ranged" << endl;
-                        int op1;
+                        //int op1;
                         std::cin >> op1;
                         switch (op1) {
                             case 1:{
-                                //arma.push_back(new Melee());
+                                std::cout << "efectividad" << endl;
+                                int efectividad;
+                                std::cin >> efectividad;
+                                arma.push_back(new Melee(nombre, damage, efectividad));
+                                break;
                             }//fin case 2.1
                             case 2:{
-                                //arma.push_back(new Ranged());
+                                std::cout << "range" << endl;
+                                int range;
+                                std::cin >> range;
+                                arma.push_back(new Ranged(nombre, damage , range));
+                                break;
                             }// fin case 2.2
                         }//Fin switch
                         break;
                     }// fin case 1.1
                     case 2:{
+                        int peso,duracion;
+                        std::cout << "Peso" << endl;
+                        std::cin >> peso;
+                        std::cout << "duracion" << endl;
+                        std::cin >> duracion;
                         std::cout << "1. ArmaduraLiviana \n2. ArmaduraMedia \n 3. ArmaduraPesada" << endl;
-                        break;
+                        //int op1;
+                        std::cin >> op1;
+                            switch (op1) {
+                                case 1:{
+                                    armadura.push_back(new ArmaduraLiviana(peso,duracion));
+                                    break;
+                                }//fin case 2.1
+                                case 2:{
+                                    armadura.push_back(new ArmaduraMedia(peso,duracion));
+                                    break;
+                                }// fin case 2.2
+                                case 3:{
+                                    armadura.push_back(new ArmaduraPesada(peso,duracion));
+                                    break;
+                                }//fin case 2.3
+                            }
+                            break;
                     }//fin case 1.2
                     case 3:{
+                        std::cout << "Damage" <<endl;
+                        int damage;
+                        std::cin >> damage;
+                        std::cout << "Tiempo de cast" << endl;
+                        int Tiempo;
+                        std::cin >> Tiempo;
                         std::cout << "1. Fire \n 2. Ice" <<endl;
+                        std::cin >> op1;
+                        switch (op1) {
+                            case 1:{
+                                std::cout << "Burn" << endl;
+                                int burn;
+                                std::cin >> burn;
+                                magia.push_back(new Fire(damage, Tiempo,burn));
+                                break;
+                            }//fin case 2.1
+                            case 2:{
+                                int freeze;
+                                std::cout << "Freeze" << endl;
+                                std::cin >> freeze;
+                                magia.push_back(new Ice(damage, Tiempo, freeze));
+                                break;
+                            }// fin case 2.2
+                        }
                         break;
                     }//fin case 1.3
                     case 4:{
+                        int duracion1, strength;
+                        std::cout << "duracion" << endl;
+                        std::cin >> duracion1;
+                        std::cout << "strength" << endl;
+                        std::cin >> strength;
                         std::cout << "1. MagicShield \n2. MetalShield\n3. WoodShield" << endl;
+                        std::cin >> op1;
+                        switch (op1) {
+                            case 1:{
+                                int reflect;
+                                std::cout << "reflect" << endl;
+                                std::cin >> reflect;
+                                shield.push_back(new MagicShield(duracion1,strength,reflect));
+                                break;
+                            }//fin case 2.1
+                            case 2:{
+                                shield.push_back(new MetalShield(duracion1,strength));
+                                break;
+                            }// fin case 2.2
+                            case 3:{
+                                shield.push_back(new WoodShield(duracion1,strength));
+                                break;
+                            }//fin case 2.3
                         break;
+                        }
                     }//fin case 1.4
                 }//fin switch 1.1
                 break;
             }//fin case 1
             case 2:{
-                Simulacion(benders);
+                //Simulacion(benders);
+                break;
             }
         }//fin switch
         std::cout << "Desea continuar S/N" << endl;
@@ -75,7 +161,8 @@ int main(int argc, char const *argv[]) {
     return 0;
 }//fin main
 
-void Simulacion(vector<Bender*> v){
+
+/*void Simulacion(vector<Bender*> v){
     if (v.size()<2) {
         std::cout << "No hay personajes registrados, porfavor registre 2 al menos" << '\n';
     }else{
@@ -170,4 +257,4 @@ void Simulacion(vector<Bender*> v){
         }
     }
 
-}
+}*/

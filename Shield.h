@@ -5,7 +5,7 @@
 using namespace std;
 
 class Shield{
-private:
+protected:
   int duracion;
   int strength;
 public:

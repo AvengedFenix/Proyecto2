@@ -6,8 +6,8 @@ class Ranged : public Arma{
 private:
   int range;
 public:
-  Arma();
-  Arma(string, int, int);
+  Ranged();
+  Ranged(string, int, int);
   int getRange();
-
+  ~Ranged();
 };

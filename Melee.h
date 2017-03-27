@@ -7,8 +7,8 @@ private:
   int efectividad;
 
 public:
-  Arma();
-  Arma(string, int, int);
+  Melee();
+  Melee(string, int, int);
 
   int getEfectividad();
 

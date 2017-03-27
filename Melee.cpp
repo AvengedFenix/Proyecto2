@@ -1,14 +1,14 @@
 #include "Melee.h"
 
 Melee::Melee(){
-  range = 0;
+  //range = 0;
 }
 
 Melee::Melee(string nombre, int damage, int efectividad) : Arma(nombre, damage){
   this -> efectividad = efectividad;
 }
 
-Melee::getEfectividad(){
+int Melee::getEfectividad(){
   return efectividad;
 }
 
