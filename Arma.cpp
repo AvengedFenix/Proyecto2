@@ -18,5 +18,5 @@ int Arma::getDamage(){
 }
 
 Arma::~Arma(){
-  
+
 }

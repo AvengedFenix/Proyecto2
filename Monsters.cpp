@@ -16,6 +16,6 @@ void Monsters::Especial(Carta* carta){
   carta -> setValor((carta -> getValor())/* - cualquier valor*/);
 }
 
-void Monsters::setArma(Arma* arma){
-  weapon = arma;
+void Monsters::Attack(Carta* carta){
+  
 }

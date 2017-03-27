@@ -13,6 +13,10 @@ int Magia::getDamage(){
   return damage;
 }
 
+int Magia::getTiempo(){
+  return tiempo;
+}
+
 Magia::~Magia(){
-  
+
 }

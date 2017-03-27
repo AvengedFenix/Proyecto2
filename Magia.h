@@ -11,6 +11,7 @@ public:
   Magia(int, int);
 
   int getDamage();
+  int getTiempo();
 
   virtual ~Magia();
 };

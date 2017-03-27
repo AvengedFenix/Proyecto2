@@ -15,3 +15,7 @@ Nilfgaardians::Nilfgaardians(int posx, int posy, string nombre, int valor) : Car
 void Nilfgaardians::Especial(Carta* carta){
   carta -> setValor((carta -> getValor())/* - cualquier valor*/);
 }
+
+void Nilfgaardians::Attack(Carta* carta){
+  
+}
