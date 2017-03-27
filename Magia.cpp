@@ -20,3 +20,7 @@ int Magia::getTiempo(){
 Magia::~Magia(){
 
 }
+
+void Magia::idk(){
+  
+}

@@ -17,5 +17,10 @@ void Nilfgaardians::Especial(Carta* carta){
 }
 
 void Nilfgaardians::Attack(Carta* carta){
-  
+
+}
+
+
+Nilfgaardians::~Nilfgaardians(){
+
 }

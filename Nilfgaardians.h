@@ -2,9 +2,13 @@
 #include "Carta.h"
 
 class Nilfgaardians : public Carta{
+  friend class boost::serialization::access;
+  template<class Archive>
+    void serialize(Archive &ar, const unsigned int version)
+    {
+        ar & boost::serialization::base_object<Carta>(*this);
+    }
 private:
-  Arma* weapon;
-  Shield* escudo;
 
 public:
   Nilfgaardians();
@@ -12,7 +16,7 @@ public:
   Nilfgaardians(int, int, string, int);
 
 
-  virtual void Attack(Carta*);
+  void Attack(Carta*);
 
   void Especial(Carta*);
 

@@ -81,6 +81,6 @@ Magia* Carta::getMagia(){
   return magia;
 }
 
-Carta::~Carta(){
+void Carta::Attack(Carta*){
 
 }

@@ -17,6 +17,10 @@ int Shield::getStrength(){
   return strength;
 }
 
+void Shield::idk(){
+  
+}
+
 Shield::~Shield(){
 
 }

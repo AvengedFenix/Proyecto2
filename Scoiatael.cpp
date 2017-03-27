@@ -15,3 +15,7 @@ Scoiatael::Scoiatael(int posx, int posy, string nombre, int valor) : Carta(posx,
 void Scoiatael::Especial(Carta* carta){
   carta -> setValor((carta -> getValor())/* - cualquier valor*/);
 }
+
+void Scoiatael::Attack(Carta* carta){
+  
+}

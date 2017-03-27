@@ -17,6 +17,10 @@ int Arma::getDamage(){
   return damage;
 }
 
+void Arma::idk(){
+  
+}
+
 Arma::~Arma(){
 
 }

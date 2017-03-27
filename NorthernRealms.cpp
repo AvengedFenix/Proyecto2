@@ -15,3 +15,7 @@ NorthernRealms::NorthernRealms(int posx, int posy, string nombre, int valor) : C
 void NorthernRealms::Especial(Carta* carta){
   carta -> setValor((carta -> getValor())/* - cualquier valor*/);
 }
+
+void NorthernRealms::Attack(Carta* carta){
+  
+}

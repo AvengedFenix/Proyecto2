@@ -1,4 +1,4 @@
-#include "Magia.h"
+#include "Fire.h"
 
 Fire::Fire(){
   burndamage = 0;
@@ -13,5 +13,5 @@ int Fire::getBurnDamage(){
 }
 
 Fire::~Fire(){
-  
+
 }

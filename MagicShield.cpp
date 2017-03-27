@@ -1,4 +1,4 @@
-#include "Shield.h"
+#include "MagicShield.h"
 
 MagicShield::MagicShield(){
   reflect = 0;
@@ -13,5 +13,5 @@ int MagicShield::getReflect(){
 }
 
 MagicShield::~MagicShield(){
-  
+
 }

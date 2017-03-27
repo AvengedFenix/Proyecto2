@@ -2,9 +2,43 @@
 
 #include <string>
 #include <iostream>
+#include <typeinfo>
+#include <stdlib.h>
+
+#include "Shield.h"
+#include "Magia.h"
+#include "Arma.h"
+
+
+#include <boost/serialization/vector.hpp>
+
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+
+#include <boost/archive/polymorphic_binary_iarchive.hpp>
+#include <boost/archive/polymorphic_binary_oarchive.hpp>
+
+#include <boost/serialization/base_object.hpp>
+
+
 using namespace std;
 
 class Carta{
+
+  friend class boost::serialization::access;
+
+  template<class Archive>
+   void serialize(Archive &ar, const unsigned int version)
+   {
+       ar & posx;
+       ar & posy;
+       ar & nombre;
+       ar & valor;
+
+       ar & weapon;
+       ar & escudo;
+       ar & magia;
+   }
 private:
   int posx;
   int posy;
@@ -14,6 +48,7 @@ private:
   Arma* weapon;
   Shield* escudo;
   Magia* magia;//magia la usamos para ataque especial
+
 
 public:
   Carta();
@@ -42,7 +77,13 @@ public:
   virtual void Especial(Carta*);
   virtual ~Carta();
 
-  friend ostream& operator<<(ostream& out, const Carta& a){
+  friend std::ostream & operator<<(std::ostream &os, Carta &co)
+  {
+      return os << co.getX() << co.getY() << ' ' << co.getNombre() << co.getValor();
+  }
+
+
+  /*friend ostream& operator<<(ostream& out, const Carta& a){
      out <<a.posx<<","<<a.posy<<","<< a.nombre<<","<<a.valor << ", " << a.weapon -> getNombre()
      << ", " << a.weapon -> getDamage() << ", "
      << a.escudo -> getDuracion() << ", " << a.escudo -> getStrength() << ", "
@@ -50,7 +91,7 @@ public:
      return out;
   }
 
-  friend istream& operator>>(istream& in, Alumno& a){
+  friend istream& operator>>(istream& in, Carta& a){
     // char buffer[256];
     string buffer;
     getline(in,buffer);
@@ -70,28 +111,27 @@ public:
      }
 
 
-     a.posx=split[0];
-     a.posy=split[1];
+     a.posx=atoi(split[0].c_str());
+     a.posy=atoi(split[1].c_str());
      a.nombre=split[2];
-     a.valor=split[3];
+     a.valor=atoi(split[3].c_str());
 
-     int weaponNombre = split[4];
-     int weaponDamage = split[5];
+     string weaponNombre = split[4];
+     int weaponDamage = atoi(split[5].c_str());
 
      a.weapon = new Arma(weaponNombre, weaponDamage);
 
-     int duracion = split[6];
-     int strength = spilt[7];
-
+     int duracion = atoi(split[6].c_str());
+     int strength = atoi(split[7].c_str());
      a.escudo = new Shield(duracion, strength);
 
-     int MagicDamage = split[8];
-     int MagicTime = split[9];
+     int MagicDamage = atoi(split[8].c_str());
+     int MagicTime = atoi(split[9].c_str());
 
      a.magia = new Magia(MagicDamage, MagicTime);
 
      return in;
-   }
+   }*/
 
 
 
