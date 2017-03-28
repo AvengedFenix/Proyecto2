@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "Monsters.h"
 #include "Nilfgaardians.h"
 #include "Scoiatael.h"
@@ -69,26 +68,3 @@ void Monsters::heal(){
 Monsters::~Monsters(){
 
 }
-=======
-#include "Monsters.h"
-
-Monsters::Monsters(){
-
-}
-
-Monsters::Monsters(string nombre, int valor) : Carta(nombre, valor){
-
-}
-
-Monsters::Monsters(int posx, int posy, string nombre, int valor) : Carta(posx, posy, nombre, valor){
-
-}
-
-void Monsters::Especial(Carta* carta){
-  carta -> setValor((carta -> getValor())/* - cualquier valor*/);
-}
-
-void Monsters::Attack(Carta* carta){
-  
-}
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

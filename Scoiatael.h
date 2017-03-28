@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 #include "Carta.h"
 
@@ -32,17 +31,3 @@ public:
         return out;
   }
 };
-=======
-#pragma once
-#include "Carta.h"
-
-class Scoiatael : public Carta{
-private:
-
-public:
-  Scoiatael();
-  Scoiatael(string, int);
-  Scoiatael(int, int, string, int);
-  void Especial(Carta*);
-};
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 
 #include "Shield.h"
@@ -26,20 +25,3 @@ public:
 
   virtual ~MagicShield();
 };
-=======
-#pragma once
-
-#include "Shield.h"
-
-class MagicShield : public Shield{
-private:
-  int reflect;
-public:
-  MagicShield();
-  MagicShield(int, int, int);
-
-  int getReflect();
-
-  virtual ~MagicShield();
-};
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

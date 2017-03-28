@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 #include "Carta.h"
 
@@ -33,17 +32,3 @@ public:
 
   virtual ~NorthernRealms();
 };
-=======
-#pragma once
-#include "Carta.h"
-
-class NorthernRealms : public Carta{
-private:
-
-public:
-  NorthernRealms();
-  NorthernRealms(string, int);
-  NorthernRealms(int, int, string, int);
-  void Especial(Carta*);
-};
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

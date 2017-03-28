@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "Monsters.h"
 #include "Nilfgaardians.h"
 #include "Scoiatael.h"
@@ -68,26 +67,3 @@ void Nilfgaardians::heal(){
 Nilfgaardians::~Nilfgaardians(){
 
 }
-=======
-#include "Nilfgaardians.h"
-
-Nilfgaardians::Nilfgaardians(){
-
-}
-
-Nilfgaardians::Nilfgaardians(string nombre, int valor) : Carta(nombre, valor){
-
-}
-
-Nilfgaardians::Nilfgaardians(int posx, int posy, string nombre, int valor) : Carta(posx, posy, nombre, valor){
-
-}
-
-void Nilfgaardians::Especial(Carta* carta){
-  carta -> setValor((carta -> getValor())/* - cualquier valor*/);
-}
-
-void Nilfgaardians::Attack(Carta* carta){
-  
-}
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "Monsters.h"
 #include "Nilfgaardians.h"
 #include "Scoiatael.h"
@@ -72,22 +71,3 @@ bool NorthernRealms::correr(){
 void NorthernRealms::heal(){
   valor += 50;
 }
-=======
-#include "NorthernRealms.h"
-
-NorthernRealms::NorthernRealms(){
-
-}
-
-NorthernRealms::NorthernRealms(string nombre, int valor) : Carta(nombre, valor){
-
-}
-
-NorthernRealms::NorthernRealms(int posx, int posy, string nombre, int valor) : Carta(posx, posy, nombre, valor){
-
-}
-
-void NorthernRealms::Especial(Carta* carta){
-  carta -> setValor((carta -> getValor())/* - cualquier valor*/);
-}
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

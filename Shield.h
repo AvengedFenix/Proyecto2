@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 
 /*#include <boost/serialization/vector.hpp>
@@ -45,24 +44,3 @@ public:
 
   virtual ~Shield();
 };
-=======
-#pragma once
-
-#include <string>
-
-using namespace std;
-
-class Shield{
-protected:
-  int duracion;
-  int strength;
-public:
-  Shield();
-  Shield(int,int);
-
-  int getDuracion();
-  int getStrength();
-
-  virtual ~Shield();
-};
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

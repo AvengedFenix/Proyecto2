@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 
 #include "Shield.h"
@@ -22,19 +21,3 @@ public:
 
   virtual ~WoodShield();
 };
-=======
-#pragma once
-
-#include "Shield.h"
-
-class WoodShield : public Shield{
-private:
-public:
-  WoodShield();
-  WoodShield(int, int);
-
-
-
-  virtual ~WoodShield();
-};
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

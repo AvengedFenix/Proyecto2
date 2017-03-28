@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 
 #include "Arma.h"
@@ -29,21 +28,3 @@ public:
 
   virtual ~Melee();
 };
-=======
-#pragma once
-
-#include "Arma.h"
-
-class Melee : public Arma{
-private:
-  int efectividad;
-
-public:
-  Melee();
-  Melee(string, int, int);
-
-  int getEfectividad();
-
-  virtual ~Melee();
-};
->>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb
