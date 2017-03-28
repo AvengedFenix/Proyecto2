@@ -10,7 +10,13 @@ int RunJuego::run(){
     std::vector<Magia*> magia;
     std::vector<Shield*> shield;
 
-    std::vector<Personajes*> personajes;
+    std::vector<Carta*> personajes;
+
+    ifstream leerpersonajes("./Cartas/Cartas.txt");
+
+    if(leerpersonajes.good()){
+      personajes = leer();
+    }
 
     bool player = false;
     initscr();
@@ -47,7 +53,7 @@ int RunJuego::run(){
             mx = 11;
             if (c2 == 'a') {
                 for ( i = 0; i < personajes.size(); i++) {
-                    mvprintw(mx,20,"Poner getName del personaje aqui");
+                    mvprintw(mx,20, personajes[i] -> getNombre());
                     mx+=2;
                     mvprintw(mx,24,"Poner los atributos mas relevantes del personaje aqui, HP, Ataque, Escudo, etc.");
                     refresh();
