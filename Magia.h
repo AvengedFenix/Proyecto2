@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 
 /*#include <boost/serialization/vector.hpp>
@@ -42,3 +43,22 @@ public:
   }
   virtual ~Magia();
 };
+=======
+#pragma once
+
+#include <string>
+
+class Magia{
+protected:
+  int damage;
+  int tiempo; // time to cast
+public:
+  Magia();
+  Magia(int, int);
+
+  int getDamage();
+  int getTiempo();
+
+  virtual ~Magia();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 #include <iostream>
 #include <typeinfo>
@@ -40,3 +41,22 @@ public:
 
   virtual ~Armadura();
 };
+=======
+#pragma once
+
+class Armadura{
+private:
+  int peso;
+  int duracion;
+
+public:
+  Armadura();
+
+  Armadura(int, int);
+
+  int getPeso();
+  int getDuracion();
+
+  virtual ~Armadura();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

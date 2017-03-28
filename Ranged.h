@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 
 #include "Arma.h"
@@ -27,3 +28,18 @@ public:
   virtual ~Ranged();
 
 };
+=======
+#pragma once
+
+#include "Arma.h"
+
+class Ranged : public Arma{
+private:
+  int range;
+public:
+  Ranged();
+  Ranged(string, int, int);
+  int getRange();
+  ~Ranged();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

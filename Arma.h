@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 
 /*#include <boost/serialization/vector.hpp>
@@ -43,3 +44,22 @@ public:
 
 
 };
+=======
+#pragma once
+
+#include <string>
+
+using namespace std;
+
+class Arma{
+private:
+  string nombre;
+  int damage;
+public:
+  Arma();
+  Arma(string, int);
+  string getNombre();
+  int getDamage();
+  virtual ~Arma();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

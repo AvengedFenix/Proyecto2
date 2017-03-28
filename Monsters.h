@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 #include "Carta.h"
 
@@ -94,3 +95,26 @@ public:
 
 
 };
+=======
+#pragma once
+#include "Carta.h"
+
+class Monsters : public Carta{
+private:
+  Arma* weapon;
+  Shield* escudo;
+  Magia* magia;
+
+public:
+  Monsters();
+  Monsters(string, int);
+  Monsters(int, int, string, int);
+
+
+  void Attack(Carta*);
+  void Especial(Carta*);
+
+
+  virtual ~Monsters();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

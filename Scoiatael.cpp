@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "Monsters.h"
 #include "Nilfgaardians.h"
 #include "Scoiatael.h"
@@ -68,3 +69,22 @@ bool Scoiatael::correr(){
 void Scoiatael::heal(){
   valor += 70;
 }
+=======
+#include "Scoiatael.h"
+
+Scoiatael::Scoiatael(){
+
+}
+
+Scoiatael::Scoiatael(string nombre, int valor) : Carta(nombre, valor){
+
+}
+
+Scoiatael::Scoiatael(int posx, int posy, string nombre, int valor) : Carta(posx, posy, nombre, valor){
+
+}
+
+void Scoiatael::Especial(Carta* carta){
+  carta -> setValor((carta -> getValor())/* - cualquier valor*/);
+}
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 #include "Carta.h"
 
@@ -36,3 +37,25 @@ public:
 
   virtual ~Nilfgaardians();
 };
+=======
+#pragma once
+#include "Carta.h"
+
+class Nilfgaardians : public Carta{
+private:
+  Arma* weapon;
+  Shield* escudo;
+
+public:
+  Nilfgaardians();
+  Nilfgaardians(string, int);
+  Nilfgaardians(int, int, string, int);
+
+
+  virtual void Attack(Carta*);
+
+  void Especial(Carta*);
+
+  virtual ~Nilfgaardians();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

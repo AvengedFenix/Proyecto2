@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 
 #include "Armadura.h"
@@ -14,3 +15,15 @@ public:
   ArmaduraPesada(int, int);
   virtual ~ArmaduraPesada();
 };
+=======
+#pragma once
+
+#include "Armadura.h"
+
+class ArmaduraPesada : public Armadura{
+public:
+  ArmaduraPesada();
+  ArmaduraPesada(int, int);
+  virtual ~ArmaduraPesada();
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb

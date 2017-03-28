@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 
 #include "Magia.h"
@@ -27,3 +28,22 @@ public:
 
 
 };
+=======
+#pragma once
+
+#include "Magia.h"
+
+class Ice : public Magia{
+private:
+  int freezedamage;
+public:
+  Ice();
+  Ice(int, int, int);
+
+  int getFreezeDamage();
+
+  virtual ~Ice();
+
+
+};
+>>>>>>> 8cc38a4f5d0fb86bc813a0e81fbe22b9f2b753fb
