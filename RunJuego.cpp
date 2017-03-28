@@ -43,7 +43,7 @@ int RunJuego::run(){
             //Empezar juego vs AI
             //Validar si el usuario elijio un personaje
             if (player == false) {
-                mvprintw(11,20, "Usted no ha seleccionado nigun personaje");
+                mvprintw(11,20, "Usted no ha seleccionado ningun personaje");
             } else{
                 Simulacion(jugador1,pc);
             }//fin else

@@ -17,10 +17,17 @@
 #include "Ranged.h"
 #include "Shield.h"
 #include "WoodShield.h"
-#include <ncurses>
+#include <ncurses.h>
 #include <iostream>
 #include <vector>
 #include <typeinfo>
+#include <string.h>
+#include <cstdarg>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
+#include <sys/stat.h>
+
 
 using namespace std;
 
