@@ -1,3 +1,4 @@
+#include "Magia.h"
 #include "Fire.h"
 
 Fire::Fire(){

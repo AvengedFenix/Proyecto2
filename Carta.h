@@ -3,14 +3,26 @@
 #include <string>
 #include <iostream>
 #include <typeinfo>
+#include <fstream>
 #include <stdlib.h>
 
 #include "Shield.h"
+#include "MagicShield.h"
+#include "MetalShield.h"
+#include "WoodShield.h"
 #include "Magia.h"
+#include "Fire.h"
+#include "Ice.h"
 #include "Arma.h"
+#include "Ranged.h"
+#include "Melee.h"
+#include "Armadura.h"
+#include "ArmaduraLiviana.h"
+#include "ArmaduraMedia.h"
+#include "ArmaduraPesada.h"
 
 
-#include <boost/serialization/vector.hpp>
+/*#include <boost/serialization/vector.hpp>
 
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -18,14 +30,15 @@
 #include <boost/archive/polymorphic_binary_iarchive.hpp>
 #include <boost/archive/polymorphic_binary_oarchive.hpp>
 
-#include <boost/serialization/base_object.hpp>
+#include <boost/serialization/base_object.hpp>*/
+
 
 
 using namespace std;
 
 class Carta{
 
-  friend class boost::serialization::access;
+  /*friend class boost::serialization::access;
 
   template<class Archive>
    void serialize(Archive &ar, const unsigned int version)
@@ -38,48 +51,53 @@ class Carta{
        ar & weapon;
        ar & escudo;
        ar & magia;
-   }
-private:
+   }*/
+protected:
   int posx;
   int posy;
   string nombre;
-  int valor;
+  double valor;
 
   Arma* weapon;
   Shield* escudo;
   Magia* magia;//magia la usamos para ataque especial
+  Armadura* armor;
 
 
 public:
   Carta();
-  Carta(string, int);
-  Carta(int, int, string, int);
+  Carta(string, double);
+  Carta(int, int, string, double);
 
-  virtual int getX();
-  virtual int getY();
-  virtual string getNombre();
-  virtual int getValor();
+  int getX();
+  int getY();
+  string getNombre();
+  double getValor();
 
   virtual void setX(int);
   virtual void setY(int);
   virtual void setNombre(string);
-  virtual void setValor(int);
+  virtual void setValor(double);
 
-  void setArma(Arma*);
-  void setShield(Shield*);
-  void setMagia(Magia*);
+  virtual void setArma() = 0;
+  virtual void setShield() = 0;
+  virtual void setMagia() = 0;
+  virtual void setArmadura() = 0;
 
   Arma* getArma();
   Shield* getShield();
   Magia* getMagia();
+  Armadura* getArmadura();
 
   virtual void Attack(Carta*);
   virtual void Especial(Carta*);
+  virtual bool correr();
+  virtual void heal();
   virtual ~Carta();
 
   friend std::ostream & operator<<(std::ostream &os, Carta &co)
   {
-      return os << co.getX() << co.getY() << ' ' << co.getNombre() << co.getValor();
+      return os << typeid(co).name() << "," << co.nombre << "," << co.valor << ",";
   }
 
 

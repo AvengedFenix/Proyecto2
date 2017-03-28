@@ -1,3 +1,5 @@
+
+#include "Shield.h"
 #include "MagicShield.h"
 
 MagicShield::MagicShield(){
@@ -5,7 +7,7 @@ MagicShield::MagicShield(){
 }
 
 MagicShield::MagicShield(int duracion, int strength, int reflect) : Shield(duracion, strength){
-  this -> reflect = reflect;
+
 }
 
 int MagicShield::getReflect(){

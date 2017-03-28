@@ -1,7 +1,7 @@
 Proyecto: main.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o
 	g++ main.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o -lboost_serialization -o Proyecto
 
-main.o: main.cpp Carta.h Deck.h Nilfgaardians.h Monsters.h NorthernRealms.h Scoiatael.h
+main.o: main.cpp Jugador.h Carta.h Deck.h Nilfgaardians.h Monsters.h NorthernRealms.h Scoiatael.h Arma.h Melee.h Ranged.h Armadura.h ArmaduraLiviana.h ArmaduraMedia.h ArmaduraPesada.h Magia.h Fire.h Ice.h Shield.h MagicShield.h WoodShield.h MetalShield.h
 	g++ -c main.cpp
 
 Carta.o: Carta.cpp Carta.h
@@ -19,10 +19,10 @@ NorthernRealms.o: NorthernRealms.cpp NorthernRealms.h
 Scoiatael.o: Scoiatael.cpp Scoiatael.h
 	g++ -c Scoiatael.cpp
 
-Deck.o: Deck.cpp Deck.h Carta.h
+Deck.o: Deck.cpp Deck.h
 	g++ -c Deck.cpp
 
-Jugador.o: Jugador.cpp Jugador.h Deck.h
+Jugador.o: Jugador.cpp Jugador.h
 	g++ -c Jugador.cpp
 
 Arma.o: Arma.cpp Arma.h
@@ -69,6 +69,6 @@ WoodShield.o: WoodShield.cpp WoodShield.h
 
 g_cartas.o: g_cartas.cpp g_cartas.h
 	g++ -c g_cartas.cpp
-	
+
 clean:
 	rm *.o Proyecto

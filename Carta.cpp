@@ -5,12 +5,12 @@ Carta::Carta(){
   posx = posy = valor = 0;
 }
 
-Carta::Carta(string nombre, int valor){
+Carta::Carta(string nombre, double valor){
   this -> nombre = nombre;
   this -> valor = valor;
 }
 
-Carta::Carta(int posx, int posy, string nombre, int valor){
+Carta::Carta(int posx, int posy, string nombre, double valor){
   this -> posx = posx;
   this -> posy = posy;
   this -> nombre = nombre;
@@ -29,7 +29,7 @@ string Carta::getNombre(){
   return nombre;
 }
 
-int Carta::getValor(){
+double Carta::getValor(){
   return valor;
 }
 
@@ -45,7 +45,7 @@ void Carta::setNombre(string name){
   nombre = name;
 }
 
-void Carta::setValor(int value){
+void Carta::setValor(double value){
   valor = value;
 }
 
@@ -57,17 +57,7 @@ Carta::~Carta(){
 
 }
 
-void Carta::setArma(Arma* arma){
-  weapon = arma;
-}
 
-void Carta::setShield(Shield* shield){
-  escudo = shield;
-}
-
-void Carta::setMagia(Magia* magic){
-  magia = magic;
-}
 
 Arma* Carta::getArma(){
   return weapon;
@@ -81,6 +71,21 @@ Magia* Carta::getMagia(){
   return magia;
 }
 
+Armadura* Carta::getArmadura(){
+  return armor;
+}
+
 void Carta::Attack(Carta*){
 
 }
+
+bool Carta::correr(){
+
+}
+
+void Carta::heal(){
+
+}
+/*{
+    //return os << co.getX() << co.getY() << ' ' << co.getNombre() << co.getValor();
+}*/

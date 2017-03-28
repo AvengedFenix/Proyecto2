@@ -2,22 +2,30 @@
 #include "Carta.h"
 
 class Monsters : public Carta{
-  friend class boost::serialization::access;
+  /*friend class boost::serialization::access;
   template<class Archive>
     void serialize(Archive &ar, const unsigned int version)
     {
         ar & boost::serialization::base_object<Carta>(*this);
-    }
+    }*/
 private:
 
 public:
   Monsters();
-  Monsters(string, int);
-  Monsters(int, int, string, int);
+  Monsters(string, double);
+  Monsters(int, int, string, double);
 
+
+
+  virtual void setArma();
+  virtual void setShield();
+  virtual void setMagia();
+  virtual void setArmadura();
 
   void Attack(Carta*);
   void Especial(Carta*);
+  bool correr();
+  void heal();
 
 
   virtual ~Monsters();
@@ -77,6 +85,12 @@ public:
 
      return in;
    }*/
+
+
+     friend ostream& operator<<(ostream& out, const Monsters& a){
+           out << typeid(a).name() << "," << a.nombre << "," << a.valor << ",";
+           return out;
+     }
 
 
 };

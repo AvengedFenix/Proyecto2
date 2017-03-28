@@ -1,3 +1,5 @@
+
+#include "Magia.h"
 #include "Ice.h"
 
 Ice::Ice(){
