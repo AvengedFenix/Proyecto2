@@ -1,5 +1,5 @@
-Proyecto: MiniGwent.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o RunJuego.o
-	g++ MiniGwent.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o RunJuego.o -lncurses -o Proyecto
+Proyecto: MiniGwent.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o RunJuego.o
+	g++ MiniGwent.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o RunJuego.o -lncurses -o Proyecto
 
 MiniGwent.o: MiniGwent.cpp Jugador.h Carta.h Nilfgaardians.h Monsters.h NorthernRealms.h Scoiatael.h Arma.h Melee.h Ranged.h Armadura.h ArmaduraLiviana.h ArmaduraMedia.h ArmaduraPesada.h Magia.h Fire.h Ice.h Shield.h MagicShield.h WoodShield.h MetalShield.h
 	g++ -c MiniGwent.cpp
@@ -67,9 +67,6 @@ MetalShield.o: MetalShield.cpp MetalShield.h
 
 WoodShield.o: WoodShield.cpp WoodShield.h
 	g++ -c WoodShield.cpp
-
-g_cartas.o: g_cartas.cpp g_cartas.h
-	g++ -c g_cartas.cpp
 
 RunJuego.o: RunJuego.cpp RunJuego.h
 	g++ -c RunJuego.cpp

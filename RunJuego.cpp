@@ -16,7 +16,7 @@ int RunJuego::run(){
 
 
     ifstream leerpersonajes("./Cartas/Cartas.txt");
-
+    cout << "Hola" << endl;
     if(leerpersonajes.good()){
       cout << "Entro" << endl;
       personajes = leer();
@@ -131,8 +131,9 @@ int RunJuego::run(){
             mvprintw(mx,24,"Ingrese index de personaje: ");
 
             int opcion = getch();
+            cout << opcion;
 
-            jugador1 -> setCarta(personajes[opcion]);
+            //jugador1 -> setCarta(personajes[opcion]);
 
 
             player = true;
