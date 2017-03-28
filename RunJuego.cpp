@@ -11,15 +11,67 @@ int RunJuego::run(){
     std::vector<Shield*> shield;
 
     std::vector<Carta*> personajes;
-    Jugador* jugador1;
-    Jugador* pc;
+    Jugador* jugador1 = new Jugador();
+    Jugador* pc = new Jugador();
 
 
     ifstream leerpersonajes("./Cartas/Cartas.txt");
-    cout << "Hola" << endl;
+
     if(leerpersonajes.good()){
-      cout << "Entro" << endl;
-      personajes = leer();
+      /*cout << "Entro" << endl;
+      personajes = leer();*/
+      string buffer;
+
+      while(getline(leerpersonajes,buffer)){
+
+        string split[15];//ejemplo que dio el ing. Bocanegra
+        int str=0;
+
+        for(int i=0;i<buffer.size();i++){
+           if(buffer[i]!=','){
+                split[str].append(buffer,i,1);
+
+            }else{
+                str++;
+            }
+        }
+
+        string id =split[0];
+        string nombre =split[1];
+        double valor = atoi(split[2].c_str());
+        string armaid = split[3];
+        string armaname = split[4];
+        int armadamage = atoi(split[5].c_str());
+        string shieldid = split[6];
+        int shieldduracion = atoi(split[7].c_str());
+        int shieldstrength = atoi(split[8].c_str());
+        string magiaid = split[9];
+        int magiadamage = atoi(split[10].c_str());
+        int magiatiempo = atoi(split[11].c_str());
+        string armaduraid = split[12];
+        int armadurapeso = atoi(split[13].c_str());
+        int armaduraduracion = atoi(split[14].c_str());
+
+        Carta* carta;
+        if(id == typeid(Nilfgaardians).name()){
+          carta = new Nilfgaardians(nombre, valor);
+        }else if(id == typeid(Scoiatael).name()){
+          carta = new Scoiatael(nombre, valor);
+        }else if(id == typeid(NorthernRealms).name()){
+          carta = new NorthernRealms(nombre, valor);
+        }else{
+
+        }
+        //cout << id << " " << nombre << " " << valor << endl;
+        carta -> setArma();
+        carta -> setShield();
+        carta -> setMagia();
+        carta -> setArmadura();
+
+        personajes.push_back(carta);
+      }
+
+    leerpersonajes.close();
     }
 
     bool player = false;
@@ -30,21 +82,25 @@ int RunJuego::run(){
     init_pair(1, COLOR_RED, COLOR_WHITE);
     attron(COLOR_PAIR(1));
     mvprintw(0, y/2, "Welcome to The Witcher RPG");
-    mvprintw(3, y/2, "Please enter your username");
+    //mvprintw(3, y/2, "Please enter your username");
     //string username = getstr();
     int mx = 11;
 
     char resp = 's';
     while (resp == 's') {
+        refresh();
         mvprintw(5, y/2, "a. Play");
         mvprintw(7, y/2, "b. Choose character");
         mvprintw(9, y/2, "c. Modify character");
+        mvprintw(11, y/2, "d. Salir");
+        refresh();
         char c1 = getch();
         if (c1 == 'a') {
             //Empezar juego vs AI
             //Validar si el usuario elijio un personaje
             if (player == false) {
-                mvprintw(11,20, "Usted no ha seleccionado ningun personaje");
+                mvprintw(21,30, "Usted no ha seleccionado ningun personaje");
+                refresh();
             } else{
                 Simulacion(jugador1,pc);
             }//fin else
@@ -63,6 +119,7 @@ int RunJuego::run(){
                 for (int i = 0; i < personajes.size(); i++) {
                   if(typeid(*personajes[i]).name() == typeid(Monsters).name()){
                     stringstream s;
+                    refresh();
                     s << i << " " << personajes[i] -> getNombre();
                     const string tmp = s.str();
                     const char* c = tmp.c_str();
@@ -80,6 +137,7 @@ int RunJuego::run(){
               for (int i = 0; i < personajes.size(); i++) {
                 if(typeid(*personajes[i]).name() == typeid(Scoiatael).name()){
                   stringstream s;
+                  refresh();
                   s << i << " " << personajes[i] -> getNombre();
                   const string tmp = s.str();
                   const char* c = tmp.c_str();
@@ -97,6 +155,7 @@ int RunJuego::run(){
               for (int i = 0; i < personajes.size(); i++) {
                 if(typeid(*personajes[i]).name() == typeid(Nilfgaardians).name()){
                   stringstream s;
+                  refresh();
                   s << i << " " << personajes[i] -> getNombre();
                   const string tmp = s.str();
                   const char* c = tmp.c_str();
@@ -114,6 +173,7 @@ int RunJuego::run(){
               for (int i = 0; i < personajes.size(); i++) {
                 if(typeid(*personajes[i]).name() == typeid(NorthernRealms).name()){
                   stringstream s;
+                  refresh();
                   s << i << " " << personajes[i] -> getNombre();
                   const string tmp = s.str();
                   const char* c = tmp.c_str();
@@ -131,9 +191,11 @@ int RunJuego::run(){
             mvprintw(mx,24,"Ingrese index de personaje: ");
 
             int opcion = getch();
-            cout << opcion;
 
-            //jugador1 -> setCarta(personajes[opcion]);
+
+            jugador1 -> setCarta(personajes[opcion]);
+            //cout << jugador1 -> getCarta() -> getNombre();
+
 
 
             player = true;
@@ -266,10 +328,18 @@ int RunJuego::run(){
             }//fin else
         }*///fin if
       }else{
+        clear();
+        refresh();
+        guardar(personajes);
         return 0;
       }
+      clear();
     }//fin while
     attroff(COLOR_PAIR(1));
+    for(int i = 0; i < personajes.size(); i++){
+      delete personajes[i];
+    }
+    guardar(personajes);
     refresh();
     endwin();
     return 0;
@@ -374,6 +444,12 @@ vector<Carta*> RunJuego::leer(){
 }
 
 int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
+    PC -> setCarta(new Nilfgaardians("Emhyr", 500));
+    PC -> getCarta() -> setArma();
+    PC -> getCarta() -> setShield();
+    PC -> getCarta() -> setMagia();
+    PC -> getCarta() -> setArmadura();
+
     clear();
     mvprintw(0,0,"+");
     mvprintw(1,0,"+");
@@ -408,21 +484,22 @@ int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
     while (jugador->getCarta()->getValor()>0 || PC->getCarta()->getValor()>0) {
         mvprintw(4, 10, "Jugador 1, Elija \n1. Attack\n2. Special Attack\n3. Run\n4. Heal\n");
         refresh();
-        char sim = getch();
-        if (sim == '1') {
+        int sim = getch();
+        if (sim == 1) {
+          clear();
             jugador->getCarta()->Attack(PC->getCarta());
             mvprintw(4,10, "Dano realizado");
-        }else if (sim == '2') {
+        }else if (sim == 2) {
             jugador->getCarta()->Especial(PC->getCarta());
             mvprintw(4,10, "Dano Especial realizado");
-        }else if (sim == '3') {
+        }else if (sim == 3) {
             if (jugador->getCarta()->correr() == true) {
                 mvprintw(4,10,"Jugador ha escapado");
                 return 0;
             }else{
                 mvprintw(4,10, "No ha podido escapar");
             }//fin else
-        }else if (sim == '4') {
+        }else if (sim == 4) {
             jugador->getCarta()->heal();
             mvprintw(4,10,"Curado con exito");
         }//fin if
@@ -432,7 +509,9 @@ int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
         int sim2 = rand()%4 +1;
         if (sim2 == 1) {
             PC->getCarta()->Attack(jugador->getCarta());
+            refresh();
             mvprintw(4,10, "Dano realizado");
+            refresh();
         }else if (sim2 == 2) {
             PC->getCarta()->Especial(jugador->getCarta());
             mvprintw(4,10, "Dano Especial realizado");
@@ -449,10 +528,10 @@ int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
         }//fin if
         refresh();
     }//fin while
-    if (jugador->getCarta()<=0) {
+    if (jugador->getCarta() -> getValor()<=0) {
         mvprintw(4,10, "La PC ha ganado");
         mvprintw(5,3, "X");
-    }else if (PC->getCarta()<=0) {
+    }else if (PC->getCarta() -> getValor()<=0) {
         mvprintw(4,10,"El jugador ha ganado");
         mvprintw(2,3,"X");
     }//fin if

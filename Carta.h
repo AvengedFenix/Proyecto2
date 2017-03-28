@@ -100,6 +100,10 @@ public:
       return os << typeid(co).name() << "," << co.nombre << "," << co.valor << ",";
   }
 
+  double operator-(Carta* c){
+    this -> getValor() - c -> getArma() -> getDamage();
+  }
+
 
   /*friend ostream& operator<<(ostream& out, const Carta& a){
      out <<a.posx<<","<<a.posy<<","<< a.nombre<<","<<a.valor << ", " << a.weapon -> getNombre()

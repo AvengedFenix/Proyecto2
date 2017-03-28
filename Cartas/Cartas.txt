@@ -1,4 +1,4 @@
 13Nilfgaardians,Emhyr van Emires,500,6Ranged,Bow,150,10WoodShield,40,25,3Ice,50,20,13ArmaduraMedia,50,30
 9Scoiatael,Avallach,700,6Ranged,Crossbow,180,11MetalShield,15,40,4Fire,40,25,15ArmaduraLiviana,40,20
-8Monsters,Eredin,650,5Melee,Claws,130,11MetalShield,60,40,4Fire,40,30,13ArmaduraMedia,40,20
+9Scoiatael,Avallach,700,6Ranged,Crossbow,180,11MetalShield,15,40,4Fire,40,25,15ArmaduraLiviana,40,20
 14NorthernRealms,Foltest,550,5Melee,Longsword,200,11MetalShield,20,30,3Ice,30,30,14ArmaduraPesada,70,40
