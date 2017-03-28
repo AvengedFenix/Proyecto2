@@ -37,7 +37,7 @@ public:
   virtual ~Arma();
 
   friend ostream& operator<<(ostream& out, const Arma& a){
-        out << typeid(a).name() << "," << a.nombre << "," << a.damage << "," << endl;
+        out << typeid(a).name() << "," << a.nombre << "," << a.damage << ",";
         return out;
   }
 

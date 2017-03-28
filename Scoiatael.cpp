@@ -41,20 +41,21 @@ Scoiatael::~Scoiatael(){
 }
 
 void Scoiatael::setArmadura(){
-
+  armor = new ArmaduraLiviana(40,20);
 }
 
 void Scoiatael::setArma(){
+  weapon = new Ranged("Crossbow" , 180, 20);
   //new arma con damage 100
 
 }
 
 void Scoiatael::setShield(){
-
+  escudo = new MetalShield(15, 40);
 }
 
 void Scoiatael::setMagia(){
-
+  magia = new Fire(40, 25, 15);
 }
 
 bool Scoiatael::correr(){

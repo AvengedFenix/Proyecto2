@@ -3,6 +3,11 @@
 #include "ArmaduraLiviana.h"
 #include "ArmaduraMedia.h"
 #include "ArmaduraPesada.h"
+#include "Carta.h"
+#include "NorthernRealms.h"
+#include "Scoiatael.h"
+#include "Monsters.h"
+#include "Nilfgaardians.h"
 #include "Fire.h"
 #include "Ice.h"
 #include "Magia.h"
@@ -27,5 +32,8 @@ private:
 public:
   RunJuego();
   int run();
+  void guardar(vector<Carta*>);
+  vector<Carta*> leer();
+
   virtual ~Run ();
 };

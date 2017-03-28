@@ -1,8 +1,8 @@
-Proyecto: main.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o
-	g++ main.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o -lboost_serialization -o Proyecto
+Proyecto: GuardarLeer.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o
+	g++ GuardarLeer.o Carta.o Nilfgaardians.o Monsters.o NorthernRealms.o Scoiatael.o Deck.o Jugador.o Arma.o Melee.o Ranged.o Armadura.o ArmaduraLiviana.o ArmaduraMedia.o ArmaduraPesada.o Magia.o Fire.o Ice.o Shield.o MagicShield.o WoodShield.o MetalShield.o g_cartas.o -o Proyecto
 
-main.o: main.cpp Jugador.h Carta.h Deck.h Nilfgaardians.h Monsters.h NorthernRealms.h Scoiatael.h Arma.h Melee.h Ranged.h Armadura.h ArmaduraLiviana.h ArmaduraMedia.h ArmaduraPesada.h Magia.h Fire.h Ice.h Shield.h MagicShield.h WoodShield.h MetalShield.h
-	g++ -c main.cpp
+GuardarLeer.o: GuardarLeer.cpp Jugador.h Carta.h Deck.h Nilfgaardians.h Monsters.h NorthernRealms.h Scoiatael.h Arma.h Melee.h Ranged.h Armadura.h ArmaduraLiviana.h ArmaduraMedia.h ArmaduraPesada.h Magia.h Fire.h Ice.h Shield.h MagicShield.h WoodShield.h MetalShield.h
+	g++ -c GuardarLeer.cpp
 
 Carta.o: Carta.cpp Carta.h
 	g++ -c Carta.cpp

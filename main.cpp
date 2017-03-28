@@ -12,6 +12,8 @@
 #include "Ranged.h"
 #include "Shield.h"
 #include "WoodShield.h"
+#include "Carta.h"
+#include "Nilfgaardians.h"
 
 
 #include <iostream>
