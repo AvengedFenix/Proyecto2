@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Deck.h"
+#include "Carta.h"
 #include <string>
 #include <vector>
 
@@ -9,17 +10,17 @@ using namespace std;
 class Jugador{
 private:
   string nombre;
-  vector<Deck*> decks;
+  Carta* carta;
 
 public:
   Jugador();
   Jugador(string);
 
   string getNombre();
-  Deck* getDeck(int);
+  Carta* getCarta();
 
   void setNombre(string);
-  void addDeck(Deck*);
+  void setCarta(Carta*);
 
   virtual ~Jugador();
 };

@@ -12,18 +12,18 @@ string Jugador::getNombre(){
   return nombre;
 }
 
-Deck* Jugador::getDeck(int index){
-  return decks[index];
+Carta* Jugador::getCarta(){
+  return carta;
 }
 
 void Jugador::setNombre(string name){
   nombre = name;
 }
 
-void Jugador::addDeck(Deck* deck){
-  decks.push_back(deck);
+void Jugador::setCarta(Carta* c){
+  carta = c;
 }
 
 Jugador::~Jugador(){
-  
+
 }
