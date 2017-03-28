@@ -17,6 +17,7 @@
 #include "Ranged.h"
 #include "Shield.h"
 #include "WoodShield.h"
+#include "Jugador.h"
 #include <ncurses.h>
 #include <iostream>
 #include <vector>

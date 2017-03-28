@@ -11,6 +11,9 @@ int RunJuego::run(){
     std::vector<Shield*> shield;
 
     std::vector<Carta*> personajes;
+    Jugador* juagdor1;
+    Jugador* pc;
+
 
     ifstream leerpersonajes("./Cartas/Cartas.txt");
 
@@ -53,27 +56,60 @@ int RunJuego::run(){
             mx = 11;
             if (c2 == 'a') {
                 for ( i = 0; i < personajes.size(); i++) {
-                    mvprintw(mx,20, personajes[i] -> getNombre());
+                  if(typeid(*personajes[i]).name() == typeid(Monsters).name()){
+                    ss << i << " " << personajes[i] -> getNombre();
+                    mvprintw(mx,20, ss.str());
                     mx+=2;
-                    mvprintw(mx,24,"Poner los atributos mas relevantes del personaje aqui, HP, Ataque, Escudo, etc.");
+                    stringstream ss;
+                    ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
+                    mvprintw(mx,24, ss.str());
                     refresh();
+                  }
                 }//fin for
             }else if (c2 == 'b') {
-                mvprintw(mx,20,"Poner getName del personaje aqui");
-                mx+=2;
-                mvprintw(mx,24,"Poner los atributos mas relevantes del personaje aqui, HP, Ataque, Escudo, etc.");
-                refresh();
+              for ( i = 0; i < personajes.size(); i++) {
+                if(typeid(*personajes[i]).name() == typeid(Scoiatael).name()){
+                  ss << i << " " << personajes[i] -> getNombre();
+                  mvprintw(mx,20, ss.str());
+                  mx+=2;
+                  stringstream ss;
+                  ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
+                  mvprintw(mx,24, ss.str());
+                  refresh();
+                }
+              }
             }else if (c2 == 'c') {
-                mvprintw(mx,20,"Poner getName del personaje aqui");
-                mx+=2;
-                mvprintw(mx,24,"Poner los atributos mas relevantes del personaje aqui, HP, Ataque, Escudo, etc.");
-                refresh();
+              for ( i = 0; i < personajes.size(); i++) {
+                if(typeid(*personajes[i]).name() == typeid(Nilfgaardians).name()){
+                  ss << i << " " << personajes[i] -> getNombre();
+                  mvprintw(mx,20, ss.str());
+                  mx+=2;
+                  stringstream ss;
+                  ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
+                  mvprintw(mx,24, ss.str());
+                  refresh();
+                }
+              }
             }else if (c2 == 'd') {
-                mvprintw(mx,20,"Poner getName del personaje aqui");
-                mx+=2;
-                mvprintw(mx,24,"Poner los atributos mas relevantes del personaje aqui, HP, Ataque, Escudo, etc.");
-                refresh();
+              for ( i = 0; i < personajes.size(); i++) {
+                if(typeid(*personajes[i]).name() == typeid(NorthernRealms).name()){
+                  ss << i << " " << personajes[i] -> getNombre();
+                  mvprintw(mx,20, ss.str());
+                  mx+=2;
+                  stringstream ss;
+                  ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
+                  mvprintw(mx,24, ss.str());
+                  refresh();
+                }
+              }
             }//fin if
+            mvprintw(mx,24,"Ingrese index de personaje: ");
+
+            int opcion = getch();
+
+            player1 -> setCarta(personajes[opcion]);
+
+
             player = true;
             resp = 's';
         }else if (c1 == 'c') {
