@@ -12,7 +12,7 @@ int RunJuego::run(){
 
     std::vector<Carta*> personajes;
     Jugador* jugador1 = new Jugador();
-    Jugador* pc = new Jugador();
+    //Jugador* pc = new Jugador();
 
 
     ifstream leerpersonajes("./Cartas/Cartas.txt");
@@ -60,7 +60,7 @@ int RunJuego::run(){
         }else if(id == typeid(NorthernRealms).name()){
           carta = new NorthernRealms(nombre, valor);
         }else{
-
+          carta = new Monsters(nombre, valor);
         }
         //cout << id << " " << nombre << " " << valor << endl;
         carta -> setArma();
@@ -102,7 +102,7 @@ int RunJuego::run(){
                 mvprintw(21,30, "Usted no ha seleccionado ningun personaje");
                 refresh();
             } else{
-                Simulacion(jugador1,pc);
+                Simulacion(jugador1);
             }//fin else
         }else if (c1 == 'b') {
             refresh();
@@ -115,6 +115,7 @@ int RunJuego::run(){
             refresh();
             c2 = getch();
             mx = 11;
+            clear();
             if (c2 == 'a') {
                 for (int i = 0; i < personajes.size(); i++) {
                   if(typeid(*personajes[i]).name() == typeid(Monsters).name()){
@@ -373,7 +374,7 @@ void RunJuego::guardar(vector<Carta*> cartas){
   outfile << ss.str();
   outfile.close();
 
-  vector<Carta*> leercartas = leer();
+  //vector<Carta*> leercartas = leer();
 
 
   /*for(int i =0; i<leercartas.size(); i++){
@@ -443,14 +444,15 @@ vector<Carta*> RunJuego::leer(){
   return cartas;
 }
 
-int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
+int RunJuego::Simulacion(Jugador* jugador){
+    Jugador* PC = new Jugador();
     PC -> setCarta(new Nilfgaardians("Emhyr", 500));
     PC -> getCarta() -> setArma();
     PC -> getCarta() -> setShield();
     PC -> getCarta() -> setMagia();
     PC -> getCarta() -> setArmadura();
-
     clear();
+    refresh();
     mvprintw(0,0,"+");
     mvprintw(1,0,"+");
     mvprintw(2,0,"+");
@@ -481,60 +483,82 @@ int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
     mvprintw(7,6,"+");
     mvprintw(2,3,"K");
     mvprintw(5,3,"W");
-    while (jugador->getCarta()->getValor()>0 || PC->getCarta()->getValor()>0) {
-        mvprintw(4, 10, "Jugador 1, Elija \n1. Attack\n2. Special Attack\n3. Run\n4. Heal\n");
+    refresh();
+
+    bool seguir = true;
+    while (seguir == true) {
+        mvprintw(8, 10, "Jugador 1, Elija \n1. Attack\n2. Special Attack\n3. Run\n4. Heal\n");
         refresh();
         int sim = getch();
         if (sim == 1) {
-          clear();
             jugador->getCarta()->Attack(PC->getCarta());
             mvprintw(4,10, "Dano realizado");
+            refresh();
         }else if (sim == 2) {
             jugador->getCarta()->Especial(PC->getCarta());
             mvprintw(4,10, "Dano Especial realizado");
+            refresh();
         }else if (sim == 3) {
             if (jugador->getCarta()->correr() == true) {
                 mvprintw(4,10,"Jugador ha escapado");
-                return 0;
+                refresh();
+                seguir = false;
             }else{
                 mvprintw(4,10, "No ha podido escapar");
+                refresh();
             }//fin else
         }else if (sim == 4) {
             jugador->getCarta()->heal();
             mvprintw(4,10,"Curado con exito");
+            refresh();
         }//fin if
 //--------------------------------------------------------------------------
+        if(PC -> getCarta() -> getValor() > 0){
         mvprintw(4,10,"La PC va a elegir su movimiento");
-        srand(time(NULL));
+        refresh();
+      //  srand(time(NULL));
         int sim2 = rand()%4 +1;
         if (sim2 == 1) {
             PC->getCarta()->Attack(jugador->getCarta());
             refresh();
-            mvprintw(4,10, "Dano realizado");
+            mvprintw(6,10, "Dano realizado");
             refresh();
         }else if (sim2 == 2) {
             PC->getCarta()->Especial(jugador->getCarta());
-            mvprintw(4,10, "Dano Especial realizado");
+            mvprintw(6,10, "Dano Especial realizado");
+            refresh();
         }else if (sim2 == 3) {
             if (PC->getCarta()->correr() == true) {
-                mvprintw(4,10,"Jugador ha escapado");
-                return 0;
+                mvprintw(6,10,"Jugador ha escapado");
+                seguir = false;
             }else{
-                mvprintw(4,10, "No ha podido escapar");
+                mvprintw(6,10, "No ha podido escapar");
+                refresh();
             }//fin else
         }else if (sim2 == 4) {
             PC->getCarta()->heal();
-            mvprintw(4,10,"Curado con exito");
+            mvprintw(6,10,"Curado con exito");
+            refresh();
         }//fin if
+      }
+        if(jugador -> getCarta() -> getValor() <= 0){
+          seguir = false;
+          mvprintw(4,10, "La PC ha ganado");
+          refresh();
+        }else if(PC -> getCarta() -> getValor() <= 0){
+          seguir = false;
+          mvprintw(4,10, "El jugador ha ganado");
+          refresh();
+        }
         refresh();
     }//fin while
-    if (jugador->getCarta() -> getValor()<=0) {
+    /*if (jugador->getCarta() -> getValor()<=0) {
         mvprintw(4,10, "La PC ha ganado");
         mvprintw(5,3, "X");
     }else if (PC->getCarta() -> getValor()<=0) {
         mvprintw(4,10,"El jugador ha ganado");
         mvprintw(2,3,"X");
-    }//fin if
+    }//fin if*/
     refresh();
     return 0;
 }//fin Simulacion

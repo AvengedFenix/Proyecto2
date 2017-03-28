@@ -42,7 +42,7 @@ void Nilfgaardians::setArmadura(){
 }
 
 void Nilfgaardians::setArma(){
-  weapon = new Ranged("Bow", 150, 10);
+  weapon = new Ranged("Bow", 150.0, 10);
 }
 
 void Nilfgaardians::setShield(){

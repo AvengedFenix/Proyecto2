@@ -42,7 +42,7 @@ void Monsters::setArmadura(){
 }
 
 void Monsters::setArma(){
-  weapon = new Melee("Claws", 130, 10);
+  weapon = new Melee("Claws", 130.0, 10);
 }
 
 void Monsters::setShield(){

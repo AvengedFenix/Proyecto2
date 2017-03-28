@@ -15,7 +15,7 @@ private:
 
 public:
   Melee();
-  Melee(string, int, int);
+  Melee(string, double, int);
 
   int getEfectividad();
 

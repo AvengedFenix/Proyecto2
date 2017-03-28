@@ -45,7 +45,7 @@ void Scoiatael::setArmadura(){
 }
 
 void Scoiatael::setArma(){
-  weapon = new Ranged("Crossbow" , 180, 20);
+  weapon = new Ranged("Crossbow" , 180.0, 20);
   //new arma con damage 100
 
 }

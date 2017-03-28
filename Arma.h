@@ -27,12 +27,12 @@ class Arma{
    }*/
 protected:
   string nombre;
-  int damage;
+  double damage;
 public:
   Arma();
-  Arma(string, int);
+  Arma(string, double);
   string getNombre();
-  int getDamage();
+  double getDamage();
   virtual void idk();
   virtual ~Arma();
 

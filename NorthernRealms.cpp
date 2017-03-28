@@ -47,7 +47,7 @@ void NorthernRealms::setArmadura(){
 
 void NorthernRealms::setArma(){
   //crear arma con damage 200
-  weapon = new Melee("Longsword" , 200, 40);
+  weapon = new Melee("Longsword" , 200.0, 40);
 
 }
 

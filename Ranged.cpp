@@ -4,7 +4,7 @@ Ranged::Ranged(){
   range = 0;
 }
 
-Ranged::Ranged(string nombre, int damage, int range) : Arma(nombre, damage){
+Ranged::Ranged(string nombre, double damage, int range) : Arma(nombre, damage){
   this -> range = range;
 }
 
@@ -13,5 +13,5 @@ int Ranged::getRange(){
 }
 
 Ranged::~Ranged(){
-  
+
 }

@@ -14,7 +14,7 @@ private:
   int range;
 public:
   Ranged();
-  Ranged(string, int, int);
+  Ranged(string, double, int);
   int getRange();
 
 

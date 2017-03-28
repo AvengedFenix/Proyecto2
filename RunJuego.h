@@ -45,6 +45,6 @@ public:
   int run();
   void guardar(vector<Carta*>);
   vector<Carta*> leer();
-  int Simulacion(Jugador*,Jugador*);
+  int Simulacion(Jugador*);
   virtual ~RunJuego();
 };
