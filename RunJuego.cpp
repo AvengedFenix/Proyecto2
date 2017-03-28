@@ -11,13 +11,14 @@ int RunJuego::run(){
     std::vector<Shield*> shield;
 
     std::vector<Carta*> personajes;
-    Jugador* juagdor1;
+    Jugador* jugador1;
     Jugador* pc;
 
 
     ifstream leerpersonajes("./Cartas/Cartas.txt");
 
     if(leerpersonajes.good()){
+      cout << "Entro" << endl;
       personajes = leer();
     }
 
@@ -30,7 +31,7 @@ int RunJuego::run(){
     attron(COLOR_PAIR(1));
     mvprintw(0, y/2, "Welcome to The Witcher RPG");
     mvprintw(3, y/2, "Please enter your username");
-    string username = getline();
+    //string username = getstr();
     int mx = 11;
 
     char resp = 's';
@@ -59,50 +60,70 @@ int RunJuego::run(){
             c2 = getch();
             mx = 11;
             if (c2 == 'a') {
-                for ( i = 0; i < personajes.size(); i++) {
+                for (int i = 0; i < personajes.size(); i++) {
                   if(typeid(*personajes[i]).name() == typeid(Monsters).name()){
-                    ss << i << " " << personajes[i] -> getNombre();
-                    mvprintw(mx,20, ss.str());
+                    stringstream s;
+                    s << i << " " << personajes[i] -> getNombre();
+                    const string tmp = s.str();
+                    const char* c = tmp.c_str();
+                    mvprintw(mx,20, c);
                     mx+=2;
                     stringstream ss;
                     ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
-                    mvprintw(mx,24, ss.str());
+                    const string tmp2 = ss.str();
+                    const char* c2 = tmp2.c_str();
+                    mvprintw(mx,24, c2);
                     refresh();
                   }
                 }//fin for
             }else if (c2 == 'b') {
-              for ( i = 0; i < personajes.size(); i++) {
+              for (int i = 0; i < personajes.size(); i++) {
                 if(typeid(*personajes[i]).name() == typeid(Scoiatael).name()){
-                  ss << i << " " << personajes[i] -> getNombre();
-                  mvprintw(mx,20, ss.str());
+                  stringstream s;
+                  s << i << " " << personajes[i] -> getNombre();
+                  const string tmp = s.str();
+                  const char* c = tmp.c_str();
+                  mvprintw(mx,20, c);
                   mx+=2;
                   stringstream ss;
                   ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
-                  mvprintw(mx,24, ss.str());
+                  const string tmp2 = ss.str();
+                  const char* c2 = tmp2.c_str();
+                  mvprintw(mx,24, c2);
                   refresh();
                 }
               }
             }else if (c2 == 'c') {
-              for ( i = 0; i < personajes.size(); i++) {
+              for (int i = 0; i < personajes.size(); i++) {
                 if(typeid(*personajes[i]).name() == typeid(Nilfgaardians).name()){
-                  ss << i << " " << personajes[i] -> getNombre();
-                  mvprintw(mx,20, ss.str());
+                  stringstream s;
+                  s << i << " " << personajes[i] -> getNombre();
+                  const string tmp = s.str();
+                  const char* c = tmp.c_str();
+                  mvprintw(mx,20, c);
                   mx+=2;
                   stringstream ss;
                   ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
-                  mvprintw(mx,24, ss.str());
+                  const string tmp2 = ss.str();
+                  const char* c2 = tmp2.c_str();
+                  mvprintw(mx,24, c2);
                   refresh();
                 }
               }
             }else if (c2 == 'd') {
-              for ( i = 0; i < personajes.size(); i++) {
+              for (int i = 0; i < personajes.size(); i++) {
                 if(typeid(*personajes[i]).name() == typeid(NorthernRealms).name()){
-                  ss << i << " " << personajes[i] -> getNombre();
-                  mvprintw(mx,20, ss.str());
+                  stringstream s;
+                  s << i << " " << personajes[i] -> getNombre();
+                  const string tmp = s.str();
+                  const char* c = tmp.c_str();
+                  mvprintw(mx,20, c);
                   mx+=2;
                   stringstream ss;
                   ss << "Arma: " << personajes[i] -> getArma() -> getNombre()<<  " HP: " <<  personajes[i] -> getValor() << endl;
-                  mvprintw(mx,24, ss.str());
+                  const string tmp2 = ss.str();
+                  const char* c2 = tmp2.c_str();
+                  mvprintw(mx,24, c2);
                   refresh();
                 }
               }
@@ -111,12 +132,12 @@ int RunJuego::run(){
 
             int opcion = getch();
 
-            player1 -> setCarta(personajes[opcion]);
+            jugador1 -> setCarta(personajes[opcion]);
 
 
             player = true;
             resp = 's';
-        }else if (c1 == 'c') {
+        }else if (c1 == 'c') {/*
             if (player == false){
                 mvprintw(11,20, "No puede acceder a esta opcion porque no tiene ningun jugador seleccionado");
                 resp = 's';
@@ -210,7 +231,7 @@ int RunJuego::run(){
                     }//fin if
                     if (submodify == 'c') {
                         //poner solo los pesada
-                        for (int i = 0; i armadura.size(); i++) {
+                        for (int i = 0; i <armadura.size(); i++) {
                             mvprintw(mx,22,i);
                             mvprintw(mx,24,". Poner nombres");
                             mx+=2;
@@ -242,7 +263,10 @@ int RunJuego::run(){
                     }//fin if submodify
                 }//fin if modify
             }//fin else
-        }//fin if
+        }*///fin if
+      }else{
+        return 0;
+      }
     }//fin while
     attroff(COLOR_PAIR(1));
     refresh();
@@ -348,7 +372,7 @@ vector<Carta*> RunJuego::leer(){
   return cartas;
 }
 
-int Simulacion(Jugador* jugador, Jugador* PC){
+int RunJuego::Simulacion(Jugador* jugador, Jugador* PC){
     clear();
     mvprintw(0,0,"+");
     mvprintw(1,0,"+");
@@ -403,21 +427,22 @@ int Simulacion(Jugador* jugador, Jugador* PC){
         }//fin if
 //--------------------------------------------------------------------------
         mvprintw(4,10,"La PC va a elegir su movimiento");
-        inr rand = %4 +1;
-        if (sim == '1') {
+        srand(time(NULL));
+        int sim2 = rand()%4 +1;
+        if (sim2 == 1) {
             PC->getCarta()->Attack(jugador->getCarta());
             mvprintw(4,10, "Dano realizado");
-        }else if (sim == '2') {
+        }else if (sim2 == 2) {
             PC->getCarta()->Especial(jugador->getCarta());
             mvprintw(4,10, "Dano Especial realizado");
-        }else if (sim == '3') {
+        }else if (sim2 == 3) {
             if (PC->getCarta()->correr() == true) {
                 mvprintw(4,10,"Jugador ha escapado");
                 return 0;
             }else{
                 mvprintw(4,10, "No ha podido escapar");
             }//fin else
-        }else if (sim == '4') {
+        }else if (sim2 == 4) {
             PC->getCarta()->heal();
             mvprintw(4,10,"Curado con exito");
         }//fin if

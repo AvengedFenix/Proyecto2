@@ -17,6 +17,7 @@
 #include "Ranged.h"
 #include "Shield.h"
 #include "WoodShield.h"
+#include "Jugador.h"
 #include <ncurses.h>
 #include <iostream>
 #include <vector>
@@ -27,6 +28,9 @@
 #include <sstream>
 #include <cstdlib>
 #include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 using namespace std;
@@ -42,5 +46,5 @@ public:
   void guardar(vector<Carta*>);
   vector<Carta*> leer();
   int Simulacion(Jugador*,Jugador*);
-  virtual ~Run ();
+  virtual ~RunJuego();
 };
