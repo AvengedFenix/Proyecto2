@@ -344,6 +344,91 @@ vector<Carta*> RunJuego::leer(){
   return cartas;
 }
 
+int Simulacion(Jugador* jugador, Jugador* PC){
+    clear();
+    mvprintw(0,0,"+");
+    mvprintw(1,0,"+");
+    mvprintw(2,0,"+");
+    mvprintw(3,0,"+");
+    mvprintw(4,0,"+");
+    mvprintw(5,0,"+");
+    mvprintw(6,0,"+");
+    mvprintw(7,0,"+");
+    mvprintw(0,1,"+");
+    mvprintw(0,2,"+");
+    mvprintw(0,3,"+");
+    mvprintw(0,4,"+");
+    mvprintw(0,5,"+");
+    mvprintw(0,6,"+");
+    mvprintw(0,7,"+");
+    mvprintw(1,7,"+");
+    mvprintw(2,7,"+");
+    mvprintw(3,7,"+");
+    mvprintw(4,7,"+");
+    mvprintw(5,7,"+");
+    mvprintw(6,7,"+");
+    mvprintw(7,7,"+");
+    mvprintw(7,1,"+");
+    mvprintw(7,2,"+");
+    mvprintw(7,3,"+");
+    mvprintw(7,4,"+");
+    mvprintw(7,5,"+");
+    mvprintw(7,6,"+");
+    mvprintw(2,3,"K");
+    mvprintw(5,3,"W");
+    while (jugador->getCarta()->getValor()>0 || PC->getCarta()->getValor()>0) {
+        mvprintw(4, 10, "Jugador 1, Elija \n1. Attack\n2. Special Attack\n3. Run\n4. Heal\n");
+        refresh();
+        char sim = getch();
+        if (sim == '1') {
+            jugador->getCarta()->Attack(PC->getCarta());
+            mvprintw(4,10, "Dano realizado");
+        }else if (sim == '2') {
+            jugador->getCarta()->Especial(PC->getCarta());
+            mvprintw(4,10, "Dano Especial realizado");
+        }else if (sim == '3') {
+            if (jugador->getCarta()->correr() == true) {
+                mvprintw(4,10,"Jugador ha escapado");
+                return 0;
+            }else{
+                mvprintw(4,10, "No ha podido escapar");
+            }//fin else
+        }else if (sim == '4') {
+            jugador->getCarta()->heal();
+            mvprintw(4,10,"Curado con exito");
+        }//fin if
+//--------------------------------------------------------------------------
+        mvprintw(4,10,"La PC va a elegir su movimiento");
+        inr rand = %4 +1;
+        if (sim == '1') {
+            PC->getCarta()->Attack(jugador->getCarta());
+            mvprintw(4,10, "Dano realizado");
+        }else if (sim == '2') {
+            PC->getCarta()->Especial(jugador->getCarta());
+            mvprintw(4,10, "Dano Especial realizado");
+        }else if (sim == '3') {
+            if (PC->getCarta()->correr() == true) {
+                mvprintw(4,10,"Jugador ha escapado");
+                return 0;
+            }else{
+                mvprintw(4,10, "No ha podido escapar");
+            }//fin else
+        }else if (sim == '4') {
+            PC->getCarta()->heal();
+            mvprintw(4,10,"Curado con exito");
+        }//fin if
+        refresh();
+    }//fin while
+    if (jugador->getCarta()<=0) {
+        mvprintw(4,10, "La PC ha ganado");
+        mvprintw(5,3, "X");
+    }else if (PC->getCarta()<=0) {
+        mvprintw(4,10,"El jugador ha ganado");
+        mvprintw(2,3,"X");
+    }//fin if
+    refresh();
+    return 0;
+}//fin Simulacion
 
 RunJuego::~RunJuego(){
 
